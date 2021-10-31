@@ -57,14 +57,32 @@ let airportData = "https://raw.githubusercontent.com/RosalieMaass/Mapping_Earthq
 
 
 //Grabbin our GeoJSON data
+// d3.json(airportData).then(function(data) {
+//   console.log(data);
+//   //creating a GeoJSON layer with the retrieved data
+//   L.geoJSON(data, {
+//     onEachFeature: function (feature, layer) {
+//       layer.bindPopup("<h2>" + feature.properties.name + ", " + feature.properties.id + '</h2>')
+//     }
+//   .addTo(map);
+// });
+
+// d3.json(airportData).then(function(data) {
+//   console.log(data);
+//   //creating a GeoJSON layer with the retrieved data
+//   L.geoJSON(data, {
+//     onEachFeature: function (feature, properties) {
+//     bindPopup("<h2>" + feature.properties.name + ", " + feature.properties.id + '</h2>')
+//     }
+//   .addTo(map);
+// });
+
 d3.json(airportData).then(function(data) {
   console.log(data);
   //creating a GeoJSON layer with the retrieved data
-  L.geoJson(data).addTo(map)
-  .bindPopup("<h2>" + data.id + ", " + airportData.code + "</h2>")
-  .addTo(map);
+  L.geoJson(data, {
+    onEachFeature: function(feature, layer) {
+    layer.bindPopup("<h2>" + feature.properties.name + ", " + feature.properties.id + "</h2>");
+    }
+  }).addTo(map);
 });
-
-// .bindPopup("<h2>" + city.city + ", " + city.state + "</h2> <hr> <h3>Population " + city.population.toLocaleString() + "</h3>")
-// .addTo(map);  
-// });
