@@ -1,0 +1,19 @@
+
+
+// //This brings up the map with markers and pop ups but incorrect information is displayed
+// d3.json(airportData).then(function(data) {
+//   console.log(data);
+//   //creating a GeoJSON layer with the retrieved data
+//   L.geoJson(data).addTo(map)
+//   .bindPopup("<h2>" + data.id + ", " + airportData.code + "</h2>")
+//   .addTo(map);
+// });
+
+// cityData.forEach(function(city) {
+//   console.log(city)
+//   L.circleMarker(city.location, {
+//       radius: city.population/100000,
+//       color: "orange"
+//   })
+//   .bindPopup("<h2>" + city.city + ", " + city.state + "</h2> <hr> <h3>Population " + city.population.toLocaleString() + "</h3>")
+// .addTo(map);  
